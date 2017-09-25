@@ -1,0 +1,19 @@
+version: '2.2'
+services:
+  app:
+    build: .
+    command: npm run start:watch
+    ports:
+      - 3000
+    env_file:
+      - ./database.env
+    volumes:
+      - .:/usr/src/app/
+      - /usr/src/app/node_modules
+
+  app-b-db:
+    image: postgres
+    volumes:
+      - ./database/:/docker-entrypoint-initdb.d
+    env_file:
+      - database.env
