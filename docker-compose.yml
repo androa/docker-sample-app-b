@@ -11,9 +11,25 @@ services:
       - .:/usr/src/app/
       - /usr/src/app/node_modules
 
-  app-b-db:
+  app-db:
     image: postgres
     volumes:
       - ./database/:/docker-entrypoint-initdb.d
     env_file:
       - database.env
+
+  psql:
+    extends:
+      service: app-db
+    command: psql
+    environment:
+      - PGHOST=app-db
+
+  pg_dump:
+    extends:
+      service: app-db
+    command: bash -c "pg_dump > /dump/database.sql"
+    volumes:
+      - ./database/:/dump/
+    environment:
+      - PGHOST=app-db

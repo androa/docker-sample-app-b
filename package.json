@@ -1,0 +1,24 @@
+{
+  "name": "docker-sample-app-b",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "author": "André Roaldseth <andre@roaldseth.net>",
+  "license": "ISC",
+  "scripts": {
+    "start:watch": "nodemon -q -x npm -s start",
+    "pretest": "yarn run lint",
+    "test": "tap test/{,**/}*.js -R spec",
+    "test:watch": "nodemon -q -x npm -s test",
+    "lint": "eslint . --ext .js",
+    "lint:watch": "nodemon -q -x npm -s run lint"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^4.6.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-config-airbnb-base": "^12.0.0",
+    "nodemon": "^1.9.2"
+  }
+}
+
