@@ -6,12 +6,12 @@
   "author": "André Roaldseth <andre@roaldseth.net>",
   "license": "ISC",
   "scripts": {
-    "start:watch": "nodemon -q -x npm -s start",
+    "start:watch": "nodemon -q -x npm -- -s start",
     "pretest": "yarn run lint",
     "test": "tap test/{,**/}*.js -R spec",
-    "test:watch": "nodemon -q -x npm -s test",
+    "test:watch": "nodemon -q -x npm -- -s test",
     "lint": "eslint . --ext .js",
-    "lint:watch": "nodemon -q -x npm -s run lint"
+    "lint:watch": "nodemon -q -x npm -- -s run lint"
   },
   "dependencies": {},
   "devDependencies": {
